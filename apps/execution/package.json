@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build":"tsc -b",
+    "build": "tsc -b",
     "start": "node dist/src/index.js",
-    "dev":"tsc -b && node dist/src/index.js"
+    "dev": "tsc -b && node dist/src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -16,9 +16,11 @@
   "type": "commonjs",
   "description": "",
   "dependencies": {
+    "@types/cors": "^2.8.17",
     "@types/dockerode": "^3.3.35",
     "@types/express": "^5.0.1",
     "@types/tmp": "^0.2.6",
+    "cors": "^2.8.5",
     "dockerode": "^4.0.4",
     "express": "^4.21.2",
     "tmp": "^0.2.3",

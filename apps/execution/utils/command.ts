@@ -21,13 +21,13 @@ export const getRunCommand = (language: languageType, filePath: string) => {
             return ['python', `/app/${filePath}`];
         case "javascript":
             return ["node", `/app/${filePath}`]; // Fixed path inconsistency
-        case "java":
-            const className = filePath.replace(/\.java$/, ''); // Handle .java extension correctly
-            return [` java -cp /app ${className}`];
+            case "java":
+                const className = filePath.replace(/\.java$/, ''); 
+                return ["java", "-cp", "/app", className];
         case "cpp":
-            return [` /app/output`];
+            return [`/app/output`];
         case "c":
-            return [` /app/output`];
+            return [`/app/output`];
         default:
             return [];
     }

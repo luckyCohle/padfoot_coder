@@ -1,12 +1,13 @@
 import express from "express"
 import executeCode from "./codeExecutor";
+import cors from "cors"
 import { executeCodeInput } from "../types/zodType";
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-
+app.use(cors())
 app.post("/execute",async (req,res)=>{
   const requestBody= req.body;
   try {
@@ -16,6 +17,7 @@ app.post("/execute",async (req,res)=>{
       res.status(400).send({
         message:"request body is of invalid type",
       })
+      console.log(parsedBody.error);
       return;
     }
     const decodedCode = Buffer.from(req.body.code, "base64").toString("utf-8");
